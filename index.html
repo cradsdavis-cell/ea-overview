@@ -76,6 +76,8 @@
     width: 100%;
     max-width: 1180px;
     animation: fade 0.4s ease;
+    transform: scale(var(--fit, 1));
+    transform-origin: center center;
   }
   .slide.active { display: block; }
 
@@ -958,6 +960,20 @@
 
   const initial = parseInt((location.hash || '#1').slice(1), 10);
   show(isFinite(initial) && initial > 0 ? initial - 1 : 0);
+
+  // Scale-to-fit: shrink slides uniformly when viewport is smaller than the design canvas.
+  // Tallest slide natural height is ~622px; width is 1180px. Reserve room for chrome bars.
+  function fit() {
+    const designH = 640, designW = 1180;
+    const reserveH = 120, reserveW = 128;
+    const availH = window.innerHeight - reserveH;
+    const availW = window.innerWidth - reserveW;
+    const sH = availH < designH ? availH / designH : 1;
+    const sW = availW < designW ? availW / designW : 1;
+    document.documentElement.style.setProperty('--fit', Math.min(sH, sW, 1));
+  }
+  window.addEventListener('resize', fit);
+  fit();
 })();
 </script>
 
