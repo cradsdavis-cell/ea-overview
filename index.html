@@ -5,21 +5,25 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>An executive assistant that actually knows me — Sam Davis</title>
 <style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,700;0,800;1,700;1,800&display=swap');
+
   :root {
-    --bg: #0d0e10;
-    --bg-soft: #15171a;
-    --bg-card: #1b1e22;
-    --bg-card-hi: #22262b;
-    --ink: #ebe7df;
-    --ink-soft: #a6a298;
-    --ink-faint: #6b6860;
-    --accent: #e9b15c;
-    --accent-deep: #c88a3a;
-    --accent-glow: rgba(233, 177, 92, 0.14);
-    --rule: #2a2d32;
-    --good: #86b98a;
+    --bg: #FAF7EE;
+    --bg-soft: #F2EEDD;
+    --bg-card: #DCE0B6;
+    --bg-card-hi: #C8CEA0;
+    --ink: #3E3418;
+    --ink-soft: #6B5F3A;
+    --ink-faint: #998D6B;
+    --accent: #8F7530;
+    --accent-bright: #B89B4A;
+    --accent-deep: #6B5624;
+    --accent-glow: rgba(184, 155, 74, 0.22);
+    --rule: #B0B490;
+    --good: #7A8B3F;
     --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
-    --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+    --sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+    --serif: "Playfair Display", "Cormorant Garamond", Georgia, "Times New Roman", serif;
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -82,18 +86,20 @@
 
   /* Typography */
   h1 {
-    font-size: clamp(36px, 5vw, 62px);
-    line-height: 1.04;
-    letter-spacing: -0.025em;
-    font-weight: 700;
+    font-family: var(--serif);
+    font-size: clamp(38px, 5.2vw, 66px);
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+    font-weight: 800;
     margin-bottom: 22px;
   }
-  h1 .accent, h2 .accent { color: var(--accent); }
+  h1 .accent, h2 .accent { color: var(--accent); font-style: italic; font-weight: 700; }
   h2 {
-    font-size: clamp(28px, 3.3vw, 44px);
-    line-height: 1.12;
-    letter-spacing: -0.02em;
-    font-weight: 700;
+    font-family: var(--serif);
+    font-size: clamp(30px, 3.5vw, 46px);
+    line-height: 1.14;
+    letter-spacing: -0.005em;
+    font-weight: 800;
     margin-bottom: 20px;
   }
   .eyebrow {
@@ -148,16 +154,17 @@
     color: var(--ink);
     margin-top: 14px;
   }
-  .mock .k { color: var(--accent); }
-  .mock .c { color: var(--ink-faint); }
-  .mock .g { color: var(--good); }
+  .mock .k { color: var(--accent); font-weight: 600; }
+  .mock .c { color: var(--ink-soft); font-style: italic; }
+  .mock .g { color: var(--good); font-weight: 600; }
   .mock .h {
-    color: var(--ink-faint);
+    color: var(--ink-soft);
     font-size: 11px;
     text-transform: uppercase;
     letter-spacing: 0.1em;
     margin-bottom: 8px;
     display: block;
+    font-weight: 600;
   }
   .mock hr { border: 0; border-top: 1px solid var(--rule); margin: 10px 0; }
 
@@ -256,7 +263,7 @@
   }
   .pcol .row:last-child { border-bottom: 0; }
   .pcol .row .lab {
-    color: var(--ink-faint);
+    color: var(--ink-soft);
     font-family: var(--mono);
     font-size: 10.5px;
     text-transform: uppercase;
@@ -264,6 +271,7 @@
     flex-shrink: 0;
     width: 76px;
     padding-top: 3px;
+    font-weight: 600;
   }
   .pcol .row .val em { color: var(--ink-soft); font-style: normal; }
 
@@ -401,23 +409,24 @@
     display: inline-block;
   }
   .spoke .sub {
-    color: var(--ink-faint);
+    color: var(--ink-soft);
     font-size: 10.5px;
     text-transform: uppercase;
     letter-spacing: 0.1em;
     margin-left: 8px;
+    font-weight: 500;
   }
   .hub-core {
     width: 210px;
     height: 210px;
     border-radius: 50%;
-    background: radial-gradient(circle at 30% 30%, var(--accent) 0%, var(--accent-deep) 70%);
-    color: #17191c;
+    background: radial-gradient(circle at 30% 30%, var(--accent-bright) 0%, var(--accent) 75%);
+    color: #2A2410;
     display: flex; flex-direction: column; align-items: center; justify-content: center;
     text-align: center;
     font-weight: 700;
     letter-spacing: -0.01em;
-    box-shadow: 0 0 80px var(--accent-glow);
+    box-shadow: 0 0 60px var(--accent-glow);
     padding: 20px;
   }
   .hub-core .bigword { font-size: 22px; line-height: 1.1; margin-bottom: 4px; }
