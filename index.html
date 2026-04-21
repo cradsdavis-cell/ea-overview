@@ -67,7 +67,7 @@
   main.stage {
     flex: 1;
     display: flex; align-items: center; justify-content: center;
-    padding: 68px 64px;
+    padding: 88px 64px;
     min-height: 100vh;
   }
 
@@ -78,6 +78,16 @@
     animation: fade 0.4s ease;
   }
   .slide.active { display: block; }
+
+  /* Brand mark */
+  .brand-mark {
+    display: block;
+    height: 68px;
+    width: auto;
+    margin-bottom: 18px;
+    opacity: 0.95;
+  }
+  .brand-mark.lg { height: 96px; margin-bottom: 22px; }
 
   @keyframes fade {
     from { opacity: 0; transform: translateY(8px); }
@@ -176,14 +186,14 @@
   }
   .layer {
     display: grid;
-    grid-template-columns: 50px 150px 1fr;
+    grid-template-columns: 46px 140px 1fr;
     gap: 18px;
     align-items: center;
     background: var(--bg-card);
     border: 1px solid var(--rule);
     border-left: 3px solid var(--accent);
     border-radius: 5px;
-    padding: 10px 18px;
+    padding: 8px 18px;
     transition: transform 0.2s;
   }
   .layer:hover { transform: translateX(4px); }
@@ -322,9 +332,9 @@
 
   /* Work-other-workflows band */
   .wf-band {
-    margin-top: 22px;
+    margin-top: 16px;
     border-top: 1px solid var(--rule);
-    padding-top: 18px;
+    padding-top: 14px;
   }
   .wf-band .lbl {
     font-family: var(--mono);
@@ -494,6 +504,52 @@
     line-height: 1.5;
   }
 
+  /* Compact ladder (slide 13) */
+  .ladder-mini {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1.35fr 1fr;
+    gap: 10px;
+    margin-top: 28px;
+  }
+  .rung {
+    background: var(--bg-card);
+    border: 1px solid var(--rule);
+    border-radius: 6px;
+    padding: 14px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .rung .r-name {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--accent);
+    font-weight: 600;
+  }
+  .rung .r-title {
+    font-weight: 700;
+    font-size: 15px;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+    line-height: 1.25;
+  }
+  .rung .r-price {
+    font-family: var(--mono);
+    font-size: 12.5px;
+    color: var(--ink-soft);
+    margin-top: 2px;
+  }
+  .rung-hero {
+    background: var(--accent-bright);
+    border-color: var(--accent-deep);
+    box-shadow: 0 0 30px var(--accent-glow);
+  }
+  .rung-hero .r-name { color: var(--accent-deep); }
+  .rung-hero .r-title { color: var(--ink); }
+  .rung-hero .r-price { color: var(--ink); opacity: 0.8; }
+
   /* Contact */
   .contact-slide .lines {
     font-family: var(--mono);
@@ -524,7 +580,7 @@
   @media (max-width: 960px) {
     main.stage { padding: 56px 24px; }
     .two-col, .portrait { grid-template-columns: 1fr; gap: 20px; }
-    .reflexes, .callouts, .scenes, .toolgrid { grid-template-columns: 1fr; }
+    .reflexes, .callouts, .scenes, .toolgrid, .ladder-mini { grid-template-columns: 1fr; }
     .hub { grid-template-columns: 1fr; gap: 20px; }
     .hub-side { align-items: flex-start !important; flex-direction: row; flex-wrap: wrap; }
     .layer, .tier { grid-template-columns: 40px 120px 1fr; gap: 10px; padding: 10px 14px; }
@@ -543,6 +599,7 @@
 
   <!-- SLIDE 1 — Title -->
   <section class="slide active" data-slide="1">
+    <img src="assets/logo-motif.png" alt="" class="brand-mark">
     <div class="eyebrow">What I built for myself</div>
     <h1>An executive assistant that <span class="accent">actually knows me.</span></h1>
     <p class="lede">Not a chatbot. Not another productivity app. A real brain — aware of who I am, what I care about, who's in my life, what I've decided, what I'm doing, and how I write. Across every part of my work and my life.</p>
@@ -815,17 +872,42 @@
     <p class="caption">Built once, with you, in your stack, tuned to your work. No off-the-shelf product. No lock-in.</p>
   </section>
 
-  <!-- SLIDE 13 — CTA -->
+  <!-- SLIDE 13 — CTA + compact ladder -->
   <section class="slide" data-slide="13">
     <div class="eyebrow">What's possible for you</div>
     <h2>Imagine an AI that <span class="accent">actually knows you.</span></h2>
-    <p class="lede" style="margin-top: 28px;">Not another subscription. Not another app to check. An executive assistant with a real brain — built around who you are, what you care about, and how you work.</p>
-    <p class="lede" style="margin-top: 20px; font-size: 19px; color: var(--ink);">Let's spend 30 minutes figuring out what yours could look like.</p>
-    <p class="caption" style="margin-top: 28px;">You learn how it works as we build it. You're never dependent on me.</p>
+    <p class="lede" style="margin-top: 24px;">Not another subscription. Not another app to check. An executive assistant with a real brain — built around who you are, what you care about, and how you work.</p>
+
+    <div class="ladder-mini">
+      <div class="rung">
+        <div class="r-name">Single session</div>
+        <div class="r-title">60 min, one thing</div>
+        <div class="r-price">$150 · technical</div>
+      </div>
+      <div class="rung">
+        <div class="r-name">Coaching block</div>
+        <div class="r-title">4 × 60 min sessions</div>
+        <div class="r-price">$500 · technical</div>
+      </div>
+      <div class="rung rung-hero">
+        <div class="r-name">The EA Setup</div>
+        <div class="r-title">One-week sprint · built for you</div>
+        <div class="r-price">$2,000 · anybody</div>
+      </div>
+      <div class="rung">
+        <div class="r-name">Layers</div>
+        <div class="r-title">Per-capability add-ons</div>
+        <div class="r-price">$500–800 each</div>
+      </div>
+    </div>
+
+    <p class="lede" style="margin-top: 22px; font-size: 19px; color: var(--ink);">Let's spend 30 minutes figuring out what yours could look like.</p>
+    <p class="caption" style="margin-top: 18px;">Free intro call. You learn how it works as we build it. You're never dependent on me.</p>
   </section>
 
   <!-- SLIDE 14 — Contact -->
   <section class="slide contact-slide" data-slide="14">
+    <img src="assets/logo-motif.png" alt="" class="brand-mark lg">
     <div class="eyebrow">Get in touch</div>
     <h1>Sam Davis</h1>
     <div class="lines">
